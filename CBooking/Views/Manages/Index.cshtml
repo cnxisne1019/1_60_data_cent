@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CBooking.Models.Manage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="main-header">
+        CBooking 
+        <span class="destaque">/Manage</span>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    Description
+                </th>
+            <th>
+                BooknName
+            </th>
+            <th>
+                Customer
+            </th>
+            <th style="float:right; margin-right:149px;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManageDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Bookname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Username)
+            </td>
+            <td>
+                <a class="btn btn-danger" style="float:right; margin-right:5px" asp-action="Delete" asp-route-id="@item.ManageId">Delete</a>
+                <a class="btn btn-default" style="float:right; margin-right:5px" asp-action="Edit" asp-route-id="@item.ManageId">Edit</a>
+                <a class="btn btn-default" style="float:right; margin-right:5px" asp-action="Details" asp-route-id="@item.ManageId">Details</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

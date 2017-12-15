@@ -1,0 +1,44 @@
+﻿@model CBooking.Models.Manage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="main-header">
+        CBooking 
+        <span class="destaque">/Create</span>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label">Book Name</label>
+                <select asp-for="BookId" class ="form-control" asp-items="ViewBag.BookId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Customer</label>
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManageDescription" class="control-label">Description</label>
+                <input asp-for="ManageDescription" class="form-control" />
+                <span asp-validation-for="ManageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

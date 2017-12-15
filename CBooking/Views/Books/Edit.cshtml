@@ -1,0 +1,40 @@
+﻿@model CBooking.Models.Book
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="row">
+    <div class="main-header">
+        CBooking /Books Listing
+        <span class="destaque">/Edit</span>
+    </div>
+</div>
+<p>
+    <a class="btn btn-default" style="float:right; " asp-action="Index">Back to List</a>
+</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookId" />
+            <div class="form-group">
+                <label asp-for="Bookname" class="control-label"></label>
+                <input asp-for="Bookname" class="form-control" />
+                <span asp-validation-for="Bookname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

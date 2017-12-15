@@ -1,0 +1,47 @@
+﻿@model CBooking.Models.Librarian
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="row">
+    <div class="main-header">
+        CBooking /History
+        <span class="destaque">/Delete</span>
+    </div>
+</div>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ManageId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ManageId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BorrowDay)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BorrowDay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Bookname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="LibrarianId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

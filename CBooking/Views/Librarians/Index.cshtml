@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CBooking.Models.Librarian>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="main-header">
+        CBooking
+        <span class="destaque">/History</span>
+    </div>
+</div>
+<p>
+    <a class="btn btn-default" style="float:right;" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Borrow Date
+            </th>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Accepted Staff
+            </th>
+            <th style="float:right; margin-right:150px;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManageId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BorrowDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Bookname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Username)
+                </td>
+                <td>
+                    <a class="btn btn-danger" style="float:right; margin-right:5px" asp-action="Delete" asp-route-id="@item.LibrarianId">Delete</a>
+                    <a class="btn btn-default" style="float:right; margin-right:5px" asp-action="Edit" asp-route-id="@item.LibrarianId">Edit</a>
+                    <a class="btn btn-default" style="float:right; margin-right:5px" asp-action="Details" asp-route-id="@item.LibrarianId">Details</a
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

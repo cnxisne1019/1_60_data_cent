@@ -1,0 +1,39 @@
+﻿@model CBooking.Models.Manage
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="main-header">
+        CBooking /Manage
+        <span class="destaque">/Detail</span>
+    </div>
+</div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ManageDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ManageDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Bookname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ManageId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

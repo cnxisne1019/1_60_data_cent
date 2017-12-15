@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CBooking.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="main-header">
+        CBooking
+        <span class="destaque">/Customers</span>
+    </div>
+</div>
+<p>
+    <a class="btn btn-default" style="float:right;" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Username)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                <a class="btn btn-danger" style="float:right; margin-right:5px" asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                <a class="btn btn-default" style="float:right; margin-right:5px" asp-action="Edit" asp-route-id="@item.UserId">Edit</a>
+                <a class="btn btn-default" style="float:right; margin-right:5px" asp-action="Details" asp-route-id="@item.UserId">Details</a>    
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
